@@ -17,6 +17,7 @@ const nextConfig = {
   // URL berakhiran "/" supaya sama di semua jenis hosting (mobil/ayla/index.html).
   trailingSlash: true,
   poweredByHeader: false,
+  images: { unoptimized: true },
   // headers() tidak berlaku pada static export; di sana diatur oleh hosting/.htaccess.
   ...(isStatic
     ? { output: "export" }
