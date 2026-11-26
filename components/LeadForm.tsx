@@ -1,0 +1,7 @@
+ "use client";
+import {useState} from "react";
+export default function LeadForm(){
+ const [name,setName]=useState("");const [model,setModel]=useState("Belum menentukan");const [budget,setBudget]=useState("");
+ function submit(e:React.FormEvent){e.preventDefault();const msg=`Halo Fahmi, saya ${name}. Saya tertarik ${model}. Perkiraan DP/anggaran: ${budget||"belum ditentukan"}. Mohon informasi promo dan simulasi.`;window.open(`https://wa.me/6285135506009?text=${encodeURIComponent(msg)}`,"_blank","noopener,noreferrer");}
+ return <form onSubmit={submit} className="form"><label>Nama<input required value={name} onChange={e=>setName(e.target.value)} placeholder="Nama Anda"/></label><label>Mobil yang diminati<select value={model} onChange={e=>setModel(e.target.value)}>{["Belum menentukan","Ayla","Sigra","Xenia","Terios","Rocky","Rocky Hybrid","Gran Max Pick Up","Gran Max Minibus","Luxio"].map(x=><option key={x}>{x}</option>)}</select></label><label>DP / anggaran (opsional)<input value={budget} onChange={e=>setBudget(e.target.value)} placeholder="Contoh: DP 20 juta"/></label><button className="btn" type="submit">Kirim konsultasi</button><small>Data akan dibuka dalam pesan WhatsApp, tidak disimpan di website.</small></form>;
+}
